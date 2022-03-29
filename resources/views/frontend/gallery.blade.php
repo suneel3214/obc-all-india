@@ -34,71 +34,62 @@
     </div>
   <section class="mt-5">
      <div class="container">
+     <h1 class="mt-5 mb-5">All Gallery Photos</h1><hr>
           <div class="row" style="margin-left:40px;">
+               @foreach($data as $item)
                 <div class="col-md-4">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{asset('image/g1.jpg')}}" class="card-img-top img-h" alt="...">
+                        <img src="{{asset('image/'.$item->image)}}" class="card-img-top img-h" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title">{{$item->title}}</h5>
+                            <p class="card-text">{!! Str::limit($item->description, 50) !!}
+                            <button type="button" class="btn btn-warning showbtn btn-sm" value="{{$item->id}}">Read more</button>
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{asset('image/g2.jpg')}}" class="card-img-top img-h" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{asset('image/g3.jpg')}}" class="card-img-top img-h" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-         </div>
-         <div class="row" style="margin-left:40px;">
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;"> 
-                        <img src="{{asset('image/g4.jpg')}}" class="card-img-top img-h" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{asset('image/g5.jpg')}}" class="card-img-top img-h" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="{{asset('image/g6.jpg')}}" class="card-img-top img-h" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach    
          </div>
      </div>
   </section>
+  <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                <button type="button" class="close" data-bs-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="showProfile">
+            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+
+    $(document).on('click' , '.showbtn' , function() {
+        var id = $(this).val();  
+        // alert(id);    
+        $.ajax({
+
+            type: "GET",
+            url: "/gallery-show/"+id,
+            success: function(response){
+                $('#showProfile').html(response)
+                $('#profileModal').modal('show');
+           }
+        });
+    });
+});
+</script>
 @include('Admin.partial.frontend_footer')
     
     </body>
-        <!-- <script src="include_front/assist/js/bootstrap-select.min.js"></script>
-        <script src="include_front/assist/js/jquery.bxslider.min.js"></script>
-        <script src="include_front/assist/js/jquery.validate.min.js"></script>
-        <script src="include_front/assist/js/theme.js"></script> -->
     </html>

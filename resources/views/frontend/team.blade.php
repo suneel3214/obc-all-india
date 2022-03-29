@@ -32,137 +32,37 @@
     </div>
   <section class="mt-5">
       <div class="container">
-          <div class="row">
-              <div class="col-md-6 col-lg-6">
-                 <h1 class="heading">OBC ALL INDIA SAMAJ SEVA KENDRA FOUNDATION TEAMS</h1><br>
-                 <p style="line-height: 2;">OBC ALL INDIA Samaj Seva Kendra is a non-profit charity organization (NGO) founded in the
-                      year 2022 and established under Reg.02/40/04/25447/22 based and working in Guna.
-                      OBC ALL INDIA Samaj Seva Kendra Foundation was established by a team of social workers who are
-                     working in the field of health, education, sustainability, empowering women and child development.
-                    The purpose for this non-government organization (NGO) is to help the Needy people.
-                    We believed that we should help every people who are in need in every field such as education, hospitals, etc.</p>
-              </div>
-              <div class="col-md-6 col-lg-6">
-                  <img src="{{asset('image/ceo.jpg')}}" style="border-radius: 10%; width:100%;height:500px;" alt="">
-                  <h4 class="mt-3">Secretary of NGO <span> Mr.Dhanraj Yadav</span></h4>
-              </div>
-          </div>
-          <hr>
-          <div class="row mt-5">
-              <h1 class="mb-5">All team Member's</h1>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m1.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Neha Jain</p>
+            @foreach($data as $item)
+              @if($item->designation == 'Secretary of NGO')
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <h1 class="heading">{{$item->heading}}</h1><br>
+                        <p style="line-height: 2;">{!! $item->description !!}</p>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <img src="{{asset('image/'.$item->image)}}" style="border-radius: 10%; width:100%;height:500px;" alt="">
+                        <h4 class="mt-3">{{$item->designation}} <span> {{$item->name}}</span></h4>
+                    </div>
+                </div>
+                @endif
+            @endforeach
+            <hr>
+            <div class="row mt-5">
+                <h1 class="mb-5">All team Member's</h1>
+                @foreach($data as $item)
+                    @if($item->designation != 'Secretary of NGO')
+                    <div class="col-md-3">
+                        <div class="card" style="width: 100%;">
+                            <img src="{{asset('image/'.$item->image)}}"  style="height: 251px" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$item->designation}}</h5>
+                                <p class="card-text">{{$item->name}}</p>
+                            </div>
                         </div>
                     </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m2.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Priya Singh Sharma</p>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m3.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Anil Sharma</p>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m4.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- RamMohan Meena</p>
-                        </div>
-                    </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m5.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Deepti Singh</p>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m6.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Sanjna kewat</p>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m7.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Suneel Rathore</p>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m8.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- jai meena</p>
-                        </div>
-                    </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m9.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Mukesh sharma</p>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m10.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Vishal yadav</p>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m11.jpg')}}"  style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Deepak Sharma</p>
-                        </div>
-                    </div>
-              </div>
-              <div class="col-md-3">
-                    <div class="card" style="width: 100%;">
-                        <img src="{{asset('image/m12.jpg')}}" style="height: 251px" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">designation of ....</h5>
-                            <p class="card-text">Name- Rakhi Yadav</p>
-                        </div>
-                    </div>
-              </div>
-          </div>
+                    @endif
+                @endforeach
+            </div>
       </div>
   </section>
 @include('Admin.partial.frontend_footer')

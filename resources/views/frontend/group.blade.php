@@ -43,7 +43,7 @@
               <div class="col-md-8 col-lg-8">
                     <div class="card" style="width: 100%;">
                         <div class="table-responsive" style="box-shadow:0px 0px 2px 2px">
-                            <table class="table table-bordered table-striped text-left" style="width:100%">
+                            <table class="table table-bordered table-striped text-left" style="width:100%;height: 235px;">
                                 <tr>
                                     <th>Group Name :</th>
                                     <td>ALL INDIA OBC FOUNDATION</td>
@@ -71,7 +71,7 @@
               <div class="col-md-8 col-lg-8">
                     <div class="card" style="width: 100%;">
                         <div class="table-responsive" style="box-shadow:0px 0px 2px 2px">
-                            <table class="table table-bordered table-striped text-left" style="width:100%">
+                            <table class="table table-bordered table-striped text-left" style="width:100%;height: 235px;">
                                 <tr>
                                     <th>Group Name :</th>
                                     <td>Akshay Patra Donation</td>
@@ -97,7 +97,7 @@
               <div class="col-md-8 col-lg-8">
                     <div class="card" style="width: 100%;">
                         <div class="table-responsive" style="box-shadow:0px 0px 2px 2px">
-                            <table class="table table-bordered table-striped text-left" style="width:100%">
+                            <table class="table table-bordered table-striped text-left" style="width:100%;height: 235px;">
                                 <tr>
                                     <th>Group Name :</th>
                                     <td>NARAYAN SEVA TRUST</td>

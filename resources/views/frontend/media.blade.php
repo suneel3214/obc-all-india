@@ -40,10 +40,15 @@
            @foreach($data as $item)
             <div class="col-md-4">
                 <div class="card" style="width: 20rem; height:400px!important">
+                    @if($item->link)
                     <iframe class="video" src="https://www.youtube.com/embed/{{$item->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="card-body">
+                    @else
+                        <img src="{{asset('image/'.$item->image)}}" alt="" class="video">
+                    
+                    @endif
+                        <div class="card-body">
                         <h5>दिनाँक:- {{$item->date}}</h5>
-                        <p class="card-text text-left">{!! Str::limit($item->description, 100) !!}</p>
+                        <p class="card-text text-left">{!! Str::limit($item->description, 50) !!}</p>
                         <button type="button" class="btn btn-warning showbtn btn-sm" value="{{$item->id}}">आगे पढ़ें</button>
                     </div>
                 </div>
@@ -57,7 +62,7 @@
             <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">पूरी जानकारी</h5>
-                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-bs-dismiss="modal"><i class="fa-solid fa-circle-xmark"></i></button>
             </div>
             <div class="modal-body" id="showProfile">
             

@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Media;
+use App\Models\Team;
+use App\Models\Slider;
+use App\Models\Gallery;
+use App\Models\About;
+
 
 
 class MyHomeController extends Controller
 {
     public function index(){
-        return view('home');
+        $data = Slider::all();
+        return view('home',compact('data'));
     }
 
     public function donate(){
@@ -21,11 +27,14 @@ class MyHomeController extends Controller
     }
 
     public function about(){
-        return view('frontend.about');
+
+        $data = About::all();
+        return view('frontend.about',compact('data'));
     }
 
     public function gallery(){
-        return view('frontend.gallery');
+        $data = Gallery::all();
+        return view('frontend.gallery',compact('data'));
     }
     public function media(){
         $data = Media::all();
@@ -45,7 +54,8 @@ class MyHomeController extends Controller
     }
 
     public function team(){
-        return view('frontend.team');
+        $data = Team::all();
+        return view('frontend.team',compact('data'));
     }
 
     public function project(){

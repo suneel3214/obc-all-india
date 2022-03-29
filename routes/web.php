@@ -8,6 +8,10 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MyHomeController;
 use App\Http\Controllers\Admin\MediaController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\AboutController;
 
 
 
@@ -32,6 +36,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::get('/registration', [MemberController::class, 'Membercreate']);
 Route::post('api/fetch-cities', [MemberController::class, 'fetchCity']);
 Route::resource('members', MemberController::class);
@@ -50,7 +55,7 @@ Route::get('/contact', [MyHomeController::class, "contactUs"]);
 Route::get('/about', [MyHomeController::class, "about"]);
 Route::get('/gallery', [MyHomeController::class, "gallery"]);
 Route::get('/services', [MyHomeController::class, "services"]);
-Route::get('/teams', [MyHomeController::class, "team"]);
+Route::get('/team', [MyHomeController::class, "team"]);
 Route::get('/projects', [MyHomeController::class, "project"]);
 Route::get('/groups', [MyHomeController::class, "group"]);
 Route::get('/media/{id}/', [MyHomeController::class, 'show']);
@@ -85,6 +90,19 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('exports', [MemberController::class, "export"])->name("exports");
 
     Route::resource('medias', MediaController::class);
+    Route::resource('teams', TeamController::class);
+    Route::get('/team-show/{id}/', [TeamController::class, 'show']);
+    Route::resource('galleries', GalleryController::class);
+    Route::get('/gallery-show/{id}/', [GalleryController::class, 'show']);
+    Route::resource('settings', SettingController::class);
+    Route::resource('abouts', AboutController::class);
+    Route::get('/about-show/{id}/', [AboutController::class, 'show']);
+
+
+
+
+
+
 
 
 

@@ -94,7 +94,7 @@
           <a class="nav-link" href="{{url('/services')}}">Services</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="{{url('/teams')}}">Team</a>
+          <a class="nav-link" href="{{url('/team')}}">Team</a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="{{url('/projects')}}">Project</a>

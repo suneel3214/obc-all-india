@@ -33,18 +33,15 @@
   <section class="mt-5">
       <div class="container">
           <div class="row">
+               @foreach($data as $item)
               <div class="col-md-6 col-lg-6">
-                 <h1 class="heading">OBC ALL INDIA SAMAJ SEVA KENDRA FOUNDATION</h1><br>
-                 <p style="line-height: 2;">OBC ALL INDIA Samaj Seva Kendra is a non-profit charity organization (NGO) founded in the
-                      year 2022 and established under Reg.02/40/04/25447/22 based and working in Guna.
-                      OBC ALL INDIA Samaj Seva Kendra Foundation was established by a team of social workers who are
-                     working in the field of health, education, sustainability, empowering women and child development.
-                    The purpose for this non-government organization (NGO) is to help the Needy people.
-                    We believed that we should help every people who are in need in every field such as education, hospitals, etc.</p>
+                 <h1 class="heading">{{$item->heading}}</h1><br>
+                 <p style="line-height: 2;">{!! $item->description !!}</p>
               </div>
               <div class="col-md-6 col-lg-6">
-                  <img src="{{asset('image/about.jpg')}}" style="border-radius: 10%;" alt="">
+                  <img src="{{asset('image/'.$item->image)}}" style="border-radius: 10%;" alt="">
               </div>
+              @endforeach
           </div>
       </div>
   </section>

@@ -51,10 +51,17 @@
                     <ul class="slide-menu">
                         <li><a href="{{route('medias.index')}}" style="text-decoration:none;" class="slide-item">Media</a></li>
                         <li><a href="#" style="text-decoration:none;" class="slide-item">Services</a></li>
-                        <li><a href="#" style="text-decoration:none;" class="slide-item">Team</a></li>
+                        <li><a href="{{route('teams.index')}}" style="text-decoration:none;" class="slide-item">Team</a></li>
+                        <li><a href="{{route('abouts.index')}}" style="text-decoration:none;" class="slide-item">About</a></li>
                         <li><a href="#" style="text-decoration:none;" class="slide-item">Project</a></li>
                         <li><a href="#" style="text-decoration:none;" class="slide-item">Group</a></li>
-                        <li><a href="#" style="text-decoration:none;" class="slide-item">Gallery</a></li>
+                        <li><a href="{{route('galleries.index')}}" style="text-decoration:none;" class="slide-item">Gallery</a></li>
+                    </ul>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item" style="text-decoration:none;" data-bs-toggle="slide" href="#"><i class="side-menu__icon fe fe-database"></i><span class="side-menu__label">Setting</span><i class="angle fa fa-angle-right"></i></a>
+                    <ul class="slide-menu">
+                        <li><a href="{{route('settings.index')}}" style="text-decoration:none;" class="slide-item">Slider</a></li>
                     </ul>
                 </li>
            @endif
